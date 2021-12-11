@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&family=Montserrat:wght@200;300;500&display=swap');
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+section {
+  padding-top: 5rem;
+}
+
+/* NAVBAR */
+.logo {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* JUMBOTRON */
+.jumbotron {
+  padding-top: 10rem;
+  background-color: #fd7e14;
+  overflow: hidden;
+}
+
+.jfoto {
+  transition: 0.4s ease;
+}
+
+.jfoto:hover {
+  transform: scale(1.08);
+  background-color: aqua;
+}
+
+.textjumbotron {
+  font-weight: bold !important;
+}
+
+.jtextname {
+  margin-top: 3rem;
+}
+
+/* ABOUT */
+#about {
+  background-color: #e0e0e0;
+  padding-top: 5rem;
+}
+
+.textabout {
+  text-align: justify;
+  text-indent: 45px;
+}
+
+/* PORTFOLIO */
+#portfolio {
+  background-color: #ffc08c;
+}
+
+.cardbox {
+  transition: 0.4s ease;
+}
+
+.cardbox:hover {
+  transform: scale(1.08);
+}
+
+/* SKILL */
+#skill {
+  background-color: #e0e0e0;
+}
+
+.textskill {
+  width: 250px;
+  height: 250px;
+  display: inline-block;
+  margin: 40px 40px 0;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+/* Contact */
+#contact {
+  background-color: #ffc08c;
+}
+
+/* FOOTER */
+footer {
+  font-size: small;
+  font-weight: lighter;
+  overflow: hidden;
+}
+
+footer .support {
+  text-align: center !important;
+}
+
+footer .support a {
+  color: rgb(8, 245, 154);
+  text-decoration: none;
+}
+
+.sosmed a {
+  color: #e0e0e0;
+}
+
+.sosmed a:hover {
+  color: aqua;
+}
+
+/* MEDIA SCREEN */
+@media screen and (max-width: 1000px) {
+  .jumbotron {
+    margin-top: -5rem;
+  }
+
+  footer .sosmed {
+    display: inline;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .jumbotron {
+    margin-top: -5rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .logo {
+    margin-left: 1rem;
+  }
+  .textabout {
+    font-size: smaller !important;
+  }
+}
