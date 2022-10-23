@@ -73,6 +73,11 @@ section {
   border-radius: 50px;
   background: #e0e0e0;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  transition: 0.4s ease;
+}
+
+.textskill:hover {
+  transform: scale(1.08);
 }
 
 /* Contact */
