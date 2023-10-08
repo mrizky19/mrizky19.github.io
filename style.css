@@ -36,6 +36,10 @@ section {
   margin-top: 3rem;
 }
 
+.sosmedjb {
+  display: none;
+}
+
 /* ABOUT */
 #about {
   background-color: #e0e0e0;
@@ -75,6 +79,7 @@ section {
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
   transition: 0.3s ease;
   cursor:pointer ;
+  line-height: 250px;
 }
 
 .textskill:hover {
@@ -124,6 +129,9 @@ footer .support a {
 @media screen and (max-width: 765px) {
   .jumbotron {
     margin-top: -5rem;
+  }
+  .sosmedjb {
+    display: inline;
   }
 }
 
