@@ -30,6 +30,13 @@ section {
 
 .textjumbotron {
   font-weight: bold !important;
+  transition: 0.4s ease;
+  cursor: pointer;
+  
+}
+
+.jtextname .textjumbotron:hover {
+  color: white;
 }
 
 .jtextname {
