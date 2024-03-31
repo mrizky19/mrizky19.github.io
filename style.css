@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&family=Montserrat:wght@200;300;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&family=Montserrat:wght@200;300;500&display=swap");
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 section {
@@ -9,13 +9,18 @@ section {
 
 /* NAVBAR */
 .logo {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+span {
+  font-family: "Josefin Sans", sans-serif;
+  color: #ffe600;
 }
 
 /* JUMBOTRON */
 .jumbotron {
   padding-top: 10rem;
-  background-color: #fd7e14;
+  background-image: url(img/jumbotron.jpg);
   overflow: hidden;
 }
 
@@ -24,23 +29,27 @@ section {
 }
 
 .jfoto:hover {
-  transform: scale(1.08);
-  background-color: aqua;
+  border: none;
+  transform: scale(1.1);
+  background-color: rgb(255, 0, 76);
 }
 
 .textjumbotron {
   font-weight: bold !important;
   transition: 0.4s ease;
   cursor: pointer;
-  
 }
 
 .jtextname .textjumbotron:hover {
-  color: white;
+  color: rgb(230, 50, 50);
 }
 
 .jtextname {
+  background-color: #f2eadd;
+  border-radius: 50px;
+  cursor: default;
   margin-top: 3rem;
+  margin-bottom: 20px;
 }
 
 .sosmedjb {
@@ -85,7 +94,7 @@ section {
   background: #e0e0e0;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
   transition: 0.3s ease;
-  cursor:pointer ;
+  cursor: pointer;
   line-height: 250px;
 }
 
@@ -140,6 +149,9 @@ footer .support a {
   .sosmedjb {
     display: inline;
   }
+  .jtextname {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 575px) {
@@ -148,5 +160,8 @@ footer .support a {
   }
   .textabout {
     font-size: smaller !important;
+  }
+  .jtextname {
+    width: 70%;
   }
 }
