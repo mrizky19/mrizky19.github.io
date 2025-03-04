@@ -1,4 +1,12 @@
-const bookShelf = [];
+const bookShelf = [
+  {
+    id: 1739926206791,
+    title: "koko",
+    author: "koko",
+    year: 90,
+    isComplete: true,
+  },
+];
 const RENDER_EVENT = "render-bookshelf";
 const SAVED_EVENT = "saved";
 const STORAGE_KEY = "keyOfBookSelf";
@@ -190,7 +198,9 @@ function findBookIndex(bookSelfid) {
 }
 
 function edit(bookSelf) {
+  console.log(bookSelf);
   const index = findBookIndex(bookSelf.id);
+  console.log(bookSelf.title);
   const modal = document.querySelector(".modal-edit");
   modal.style.display = "block";
   document.getElementById("edit-inputBookTitle").value = bookSelf.title;
