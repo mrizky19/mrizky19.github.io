@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="src/output.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
+  </head>
+  <body>
+    <header class="bg-navbar flex w-full">
+      <div class="container">
+        <div class="flex items-center justify-between relative z-50">
+          <div class="flex items-center">
+            <h1 class="font-bold text-xl logo py-5 px-4">E - Book<span class="text-green-500">Shelf</span></h1>
+          </div>
+
+          <div class="flex items-center justify-between lg:hidden">
+            <button id="hamburger" name="hamburger" type="button" class="block absolute right-4">
+              <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
+              <span class="hamburger-line transition duration-300 ease-in-out"></span>
+              <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
+            </button>
+
+            <nav
+              id="nav-menu"
+              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[150px] w-full right-4 top-full"
+            >
+              <ul class="block font-semibold lg:flex">
+                <li class="group:">
+                  <a
+                    class="text-base text-black py-1 mx-4 flex hover:text-red-400 transition-all duration-300"
+                    href="#koleksi"
+                    >Koleksi</a
+                  >
+                </li>
+                <li class="group:">
+                  <a
+                    class="text-base text-black py-2 mx-4 flex hover:text-red-400 transition-all duration-300"
+                    href="#finished"
+                    >Sudah Dibaca</a
+                  >
+                </li>
+                <li class="group:">
+                  <a
+                    class="text-base text-black py-2 mx-4 flex hover:text-red-400 transition-all duration-300"
+                    href="#not-finished"
+                    >Belum Dibaca</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="flex items-center hidden lg:block">
+            <button
+              id="tambah"
+              class="font-semibold text-lg bg-button px-8 py-1.5 hover:bg-green-300 transition-all duration-300"
+            >
+              Tambah Buku
+            </button>
+            <form id="searchBookDesktop" class="inline-block">
+              <input
+                id="searchBookTitleDesktop"
+                class="font-semibold w-60 h-10 p-2 rounded-full m-5 border-4"
+                type="text"
+                placeholder="Cari Buku"
+              />
+              <button
+                id="searchSubmitDesktop"
+                type="submit"
+                class="bg-white w-10 h-10 hover:bg-slate-300 transition-all duration-300"
+              >
+                🔍
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero lg:m-0 lg:-mb-5 relative">
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+      <div class="bg-fixed bg-cover bg-center h-96" style="background-image: url(src/img/bookshelf.jpg)">
+        <div class="container text-white text-center pt-28 relative">
+          <h1 class="font-bold text-3xl">E - BOOKSHELF</h1>
+          <h3 class="font-bold text-xl pb-3">
+            "Temukan Buku Favoritmu di Bookshelft – Surga bagi Pecinta Bacaan!" 📚✨
+          </h3>
+          <p>
+            Jelajahi koleksi terbaik dari berbagai genre, temukan inspirasi, dan nikmati pengalaman membaca tanpa batas.
+            🚀📖
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lg:hidden -mt-7 bg-card rounded-t-3xl relative">
+      <div class="container py-2 pb-8">
+        <div class="flex items-center justify-end">
+          <button
+            id="tambah"
+            class="font-semibold text-lg bg-button px-5 py-1.5 hover:bg-green-300 transition-all duration-300"
+          >
+            Tambah
+          </button>
+          <form id="searchBookMobile">
+            <input
+              id="searchBookTitleMobile"
+              class="font-semibold w-44 h-10 p-2 rounded-full m-3 border-4"
+              type="text"
+              placeholder="Cari Buku"
+            />
+            <button
+              id="searchSubmitMobile"
+              type="submit"
+              class="bg-white w-10 h-10 hover:bg-slate-300 transition-all duration-300"
+            >
+              🔍
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tambah Data -->
+    <section id="modal" class="hidden">
+      <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <!-- Modal Box -->
+        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+          <!-- Modal Header -->
+          <div class="flex justify-between items-center border-b pb-2">
+            <h2 class="text-lg font-semibold">Tambah Buku</h2>
+            <button id="closeModal" class="text-gray-500 hover:text-gray-700">✖</button>
+          </div>
+
+          <!-- Modal Form -->
+          <form id="inputBook" class="mt-4">
+            <!-- Input Judul -->
+            <div>
+              <label for="inputBookTitle" class="block text-sm font-medium">Judul</label>
+              <input
+                autofocus
+                type="text"
+                id="inputBookTitle"
+                maxlength="18"
+                class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+              />
+            </div>
+
+            <!-- Input Penulis -->
+            <div class="mt-3">
+              <label for="inputBookAuthor" class="block text-sm font-medium">Penulis</label>
+              <input
+                type="text"
+                id="inputBookAuthor"
+                class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+              />
+            </div>
+
+            <!-- Input Tahun -->
+            <div class="mt-3">
+              <label role="inputBookYear" class="block text-sm font-medium">Tahun</label>
+              <input
+                type="number"
+                id="inputBookYear"
+                class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+              />
+            </div>
+
+            <div class="mt-3">
+              <label role="inputBookSinopsis" class="block text-sm font-medium">Sinopsis</label>
+              <textarea
+                name="inputBookSinopsis"
+                id="inputBookSinopsis"
+                maxlength="200"
+                placeholder="Isikan Maksimal 200 kata"
+                class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+              ></textarea>
+            </div>
+
+            <!-- Input Kategori -->
+            <div class="mt-3">
+              <label for="categoriBook" class="block text-sm font-medium">Kategori</label>
+              <select
+                id="categoriBook"
+                class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+              >
+                <option value="Buku.png">Buku</option>
+                <option value="Komik.png">Komik</option>
+                <option value="Jurnal.png">Jurnal</option>
+                <option value="Kajian.png">Kitab</option>
+                <option value="Lain-Lain.png">Lain-Lain</option>
+              </select>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="mt-3 flex items-center">
+              <input
+                type="checkbox"
+                id="inputBookIsComplete"
+                class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring focus:ring-blue-300"
+              />
+              <label for="inputBookIsComplete" class="ml-2 text-sm">Selesai dibaca</label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-4 flex justify-end">
+              <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rak Koleksi  -->
+    <section id="koleksi" class="bg-white h-cardKoleksi rounded-t-3xl rounded-b-3xl collection relative z-30 lg:mt-0">
+      <h1 class="container judul p-4 font-black text-lg">Koleksi Buku</h1>
+      <p class="jumlahBuku"></p>
+      <div
+        class="container w-full overflow-x-auto scroll-smooth scrollbar-thin scrollbar-track-gray-200 scrollbar-thumb-gray-400"
+      >
+        <!-- bookShelfList -->
+        <div id="bookShelfList" class="book_list flex gap-5 min-w-max whitespace-nowrap pb-2">
+          <!-- <article class="book_items" id="bookSelf-1739926206791">
+            <div class="label">Sudah Dibaca</div>
+            <img src="src/img/Jurnal.png" />
+            <p>Andrea Hirata |</p>
+            <p>2010</p>
+            <h1>koko</h1>
+          </article> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Rak Sudah dibaca / belum dibaca  -->
+    <section class="lg:flex">
+      <div
+        id="finished"
+        class="bg-card h-card rounded-t-3xl rounded-b-3xl pt-16 finished-reading relative z-20 lg:w-1/2 lg:text-white"
+      >
+        <div class="container">
+          <h1 class="judul-done p-4 text-white font-black text-lg">Sudah Selesai Dibaca</h1>
+          <div
+            class="container w-full overflow-x-auto scroll-smooth scrollbar-thin scrollbar-track-gray-200 scrollbar-thumb-gray-400"
+          >
+            <div id="completeBookshelfList" class="book_list flex gap-5 min-w-max whitespace-nowrap pb-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="not-finished"
+        class="bg-white h-card rounded-t-3xl rounded-b-3xl pt-16 finished-reading relative z-10 lg:w-1/2 lg:bg-card lg:text-white"
+      >
+        <div class="container">
+          <h1 class="judul-not p-4 font-black text-lg">Belum Selesai Dibaca</h1>
+          <div
+            class="container w-full overflow-x-auto scroll-smooth scrollbar-thin scrollbar-track-gray-200 scrollbar-thumb-gray-400"
+          >
+            <div id="incompleteBookshelfList" class="book_list flex gap-5 min-w-max whitespace-nowrap pb-2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Edit -->
+    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 detail hidden">
+      <div class="bg-modal p-2 rounded-lg shadow-lg w-96">
+        <div class="justify-between flex items-center border-b px-5 pb-2">
+          <h1 class="font-semibold text-lg pt-2">Detail</h1>
+          <button id="closeModal" class="text-gray-500 hover:text-gray-700">✖</button>
+        </div>
+        <div class="card_detail">
+          <article class="flex -mt-5">
+            <img alt="Jurnal" class="scale-75 w-1/2 top-0 detail_image" />
+            <div class="pt-9 pr-3 book_detail text-justify w-1/2">
+              <h1 id="detail_judul"></h1>
+              <table>
+                <tr>
+                  <td>Penulis</td>
+                  <td>
+                    <p id="detail_penulis"></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Tahun</td>
+                  <td><p id="detail_tahun"></p></td>
+                </tr>
+                <tr>
+                  <td>Sinopsis</td>
+                  <td>:</td>
+                </tr>
+              </table>
+              <p id="detail_sinopsis"></p>
+            </div>
+          </article>
+          <div class="flex justify-center gap-5 pb-3">
+            <button
+              id="edit"
+              type="button"
+              class="font-semibold text-lg bg-blue-500 px-8 py-1.5 hover:bg-blue-300 transition-all duration-300"
+            >
+              Edit
+            </button>
+
+            <button
+              id="delete"
+              type="button"
+              class="font-semibold text-lg bg-red-500 px-8 py-1.5 hover:bg-red-300 transition-all duration-300"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+
+        <form id="inputBook" autocomplete="off" class="m-2 edit_form hidden">
+          <div>
+            <label for="edit-inputBookTitle" class="block text-sm font-medium">Judul</label>
+            <input
+              autofocus
+              type="text"
+              id="edit-inputBookTitle"
+              maxlength="18"
+              class="w-full px-3 py-1 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+            />
+          </div>
+
+          <!-- Input Penulis -->
+          <div class="mt-3">
+            <label for="edit-inputBookAuthor" class="block text-sm font-medium">Penulis</label>
+            <input
+              type="text"
+              id="edit-inputBookAuthor"
+              class="w-full px-3 py-1 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+            />
+          </div>
+
+          <!-- Input Tahun -->
+          <div class="mt-3">
+            <label role="edit-inputBookYear" class="block text-sm font-medium">Tahun</label>
+            <input
+              type="number"
+              id="edit-inputBookYear"
+              class="w-full px-3 py-1 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+            />
+          </div>
+
+          <div class="mt-3">
+            <label role="edit-inputBookSinopsis" class="block text-sm font-medium">Sinopsis</label>
+            <textarea
+              name="edit-inputBookSinopsis"
+              id="edit-inputBookSinopsis"
+              maxlength="200"
+              placeholder="Isikan Maksimal 200 kata"
+              class="w-full px-3 py-1 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+            ></textarea>
+          </div>
+
+          <!-- Input Kategori -->
+          <div class="mt-3">
+            <label for="edit-categoriBook" class="block text-sm font-medium">Kategori</label>
+            <select
+              id="edit-categoriBook"
+              class="w-full px-3 py-1 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+            >
+              <option value="Buku.png">Buku</option>
+              <option value="Komik.png">Komik</option>
+              <option value="Jurnal.png">Jurnal</option>
+              <option value="Kajian.png">Kitab</option>
+              <option value="Lain-Lain.png">Lain-Lain</option>
+            </select>
+          </div>
+
+          <!-- Checkbox -->
+          <div class="mt-3 flex items-center">
+            <input
+              type="checkbox"
+              id="edit-inputBookIsComplete"
+              class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring focus:ring-blue-300"
+            />
+            <label for="edit-inputBookIsComplete" class="ml-2 text-sm">Selesai dibaca</label>
+          </div>
+          <div class="flex justify-between mt-5">
+            <button
+              id="cancel"
+              type="button"
+              class="font-semibold text-lg bg-button px-8 py-1.5 hover:bg-green-300 transition-all duration-300"
+            >
+              Cancel
+            </button>
+
+            <button
+              id="update"
+              class="font-semibold text-lg bg-blue-500 px-8 py-1.5 hover:bg-blue-300 transition-all duration-300"
+            >
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal-aprov fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+      <div class="modal-content bg-modal p-2 rounded-lg shadow-lg w-72 py-5 px-5">
+        <h3>Anda Yakin ingin menghapus Buku dengan judul</h3>
+        <p id="judulBuku" class="font-semibold text-center"></p>
+        <div class="flex justify-between mt-5">
+          <button
+            id="no"
+            type="button"
+            class="font-semibold text-lg bg-button px-8 py-1.5 hover:bg-green-300 transition-all duration-300"
+          >
+            Cancel
+          </button>
+
+          <button
+            id="sure"
+            type="button"
+            class="font-semibold text-lg bg-red-500 px-8 py-1.5 hover:bg-red-300 transition-all duration-300"
+          >
+            Yes
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="h-20 bg-footer collection">
+        <p class="pt-11 text-center font-semibold text-xs">Created By Madzky ©️Bookshelf 2025</p>
+      </div>
+    </footer>
+
+    <script src="src/script.js"></script>
+  </body>
+</html>

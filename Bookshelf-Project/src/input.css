@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @tailwindcss; */
+
+body {
+  background-color: #f5e6ca;
+}
+
+button {
+  font-family: "Lato", serif;
+  border-radius: 20px;
+}
+
+/* .navbar-fixed {
+  @apply fixed z-[9999];
+} */
+
+.logo {
+  font-family: "Roboto", serif;
+}
+
+.hamburger-line {
+  @apply w-[30px] h-[2px] my-2 block bg-black;
+}
+
+.hamburger-active > span:nth-child(1) {
+  @apply rotate-45;
+}
+
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0;
+}
+
+.hamburger-active > span:nth-child(3) {
+  @apply -rotate-45;
+}
+
+.judul,
+.judul-done,
+.judul-not {
+  font-family: "Lato", serif;
+}
+
+.collection {
+  margin-top: -25px;
+  background-image: url("bg.svg");
+}
+
+.finished-reading {
+  margin-top: -60px;
+}
+
+.book_items {
+  width: 12rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.label {
+  position: absolute;
+  top: 10px; /* top-10 (10 * 0.25rem = 2.5rem) */
+  right: 0;
+  width: 8rem; /* w-32 (32 * 0.25rem = 8rem) */
+  background-color: #16a34a; /* bg-green-600 */
+  color: white; /* text-white */
+  font-size: 0.75rem; /* text-xs */
+  font-weight: bold; /* font-bold */
+  text-align: center; /* text-center */
+  transform: rotate(45deg) translateX(1.75rem) translateY(-0.75rem);
+  /* rotate-45 = 45 derajat */
+  /* translate-x-7 (7 * 0.25rem = 1.75rem) */
+  /* -translate-y-3 (-3 * 0.25rem = -0.75rem) */
+  padding: 2px 4px;
+  cursor: default;
+}
+
+.book_items > p:first-of-type {
+  font-family: "Roboto", serif;
+  font-size: 0.75rem /* 12px */;
+  line-height: 1rem /* 16px */;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+.book_items > p {
+  font-family: "Roboto", serif;
+  font-size: 0.75rem /* 12px */;
+  line-height: 1rem /* 16px */;
+  display: inline-block;
+}
+
+.book_items > h1 {
+  font-family: "Poppins", serif;
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.125rem /* 18px */;
+  line-height: 1.75rem /* 28px */;
+}
+
+.book_detail > h1 {
+  font-family: "Poppins", serif;
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.125rem /* 18px */;
+  line-height: 1.75rem /* 28px */;
+}
+
+.container::-webkit-scrollbar {
+  height: 4px;
+  display: none; /* Ukuran tinggi scrollbar */
+}
+
+.container::-webkit-scrollbar-track {
+  background: #e5e7eb; /* Warna track scrollbar */
+  border-radius: 10px;
+  height: 2px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: #9ca3af; /* Warna thumb scrollbar */
+  border-radius: 10px;
+}
+
+.detail {
+  font-family: "Poppins", serif;
+}
+
+.book_detail > p {
+  font-family: "Roboto", serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+table {
+  font-family: "Roboto", serif;
+  font-size: 14px;
+  line-height: 20px;
+}
